@@ -1,0 +1,26 @@
+{
+    "name": "vscode-gemtext",
+    "displayName": "text/gemini support for vscode",
+    "description": "text/gemini support for vscode",
+    "publisher": "SebastianHiggins",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "text-gemini",
+            "aliases": ["text/gemini", "text-gemini"],
+            "extensions": [".gmi"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "text-gemini",
+            "scopeName": "source.gemini",
+            "path": "./syntaxes/text-gemini.tmLanguage.json"
+        }]
+    }
+}

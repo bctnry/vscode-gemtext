@@ -1,0 +1,55 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "text/gemini",
+	"patterns": [
+		{ "include": "#heading" },
+		{ "include": "#link" },
+		{ "include": "#list" },
+		{ "include": "#quote" },
+		{ "include": "#verbatim" }
+	],
+	"repository": {
+		"heading": {
+			"patterns": [{
+				"match": "^#{1,3}\\s*.*$",
+				"captures": {
+					"0": { "name": "markup.heading" }
+				}
+			}]
+		},
+		"link": {
+			"patterns": [{
+				"match": "^(=>)\\s+([^\\s]*?)(?:\\s+(.*))$",
+				"captures": {
+					"1": { "name": "markup.bold.punctuation.link.beginning" },
+					"2": { "name": "markup.underline.link" }
+				}
+			}]
+		},
+		"list": {
+			"patterns": [{
+				"match": "^(\\*) \\s*(.*)$",
+				"captures": {
+					"1": { "name": "markup.bold.punctuation.list.beginning" },
+					"2": { "name": "markup.list.unnumbered" }
+				}
+			}]
+		},
+		"quote": {
+			"patterns": [{
+				"match": "^(>)\\s*(.*)$",
+				"captures": {
+					"1": { "name": "markup.bold.punctuation.quote.beginning" },
+					"2": { "name": "markup.quote" }
+				}
+			}]
+		},
+		"verbatim": {
+			"patterns": [{
+				"begin": "^```\\s*(.*)$",
+				"end": "^```\\s*$"
+			}]
+		}
+	},
+	"scopeName": "source.gemini"
+}
